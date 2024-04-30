@@ -34,7 +34,7 @@ function LoginTest({ setIsLoggedIn, isLoggedIn }) {
     const loginUser = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/login', {
+            const response = await axios.post('quoizapi.vercel.app/login', {
                 email: data.email,
                 password: data.password
             });
@@ -75,7 +75,7 @@ function LoginTest({ setIsLoggedIn, isLoggedIn }) {
 
     const fetchUserRanking = async (token) => {
         try {
-            const response = await axios.get('http://localhost:8000/user-ranking', {
+            const response = await axios.get('quoizapi.vercel.app/user-ranking', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -89,7 +89,7 @@ function LoginTest({ setIsLoggedIn, isLoggedIn }) {
 
     const fetchBestScore = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/best-score');
+            const response = await axios.get('quoizapi.vercel.app/best-score');
             setBestScore(response.data.bestScore);
         } catch (error) {
             console.error('Erreur lors de la récupération du meilleur score:', error);
@@ -98,7 +98,7 @@ function LoginTest({ setIsLoggedIn, isLoggedIn }) {
 
     const fetchUserData = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/user', {
+            const response = await axios.get('quoizapi.vercel.app/user', {
                 headers: {
                     Authorization: `Bearer ${jwt}`
                 }
